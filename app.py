@@ -1,17 +1,17 @@
-"""Multi-Agent Research System with Gemini. Author: Avatar Putra Sigit"""
+"""Multi-Agent Research System with Groq (Llama 3.3 70B). Author: Avatar Putra Sigit"""
 import os
 import sys
 import streamlit as st
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 
-def get_llm() -> ChatGoogleGenerativeAI:
-    key = os.environ.get("GEMINI_API_KEY")
+def get_llm() -> ChatGroq:
+    key = os.environ.get("GROQ_API_KEY")
     if not key:
-        st.error("GEMINI_API_KEY not found.")
+        st.error("GROQ_API_KEY not found.")
         sys.exit(1)
-    return ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=key, temperature=0.3)
+    return ChatGroq(model="llama-3.3-70b-versatile", api_key=key, temperature=0.3)
 
-def run_research(topic: str, llm: ChatGoogleGenerativeAI) -> dict:
+def run_research(topic: str, llm: ChatGroq) -> dict:
     """Run 3-agent research pipeline."""
     # Agent 1: Researcher
     r1 = llm.invoke(f"""You are a market research analyst. Research this topic and provide 5 key facts/data points:
@@ -34,7 +34,7 @@ Structure: Executive Summary, Key Findings, Recommendation.""")
 
 def main() -> None:
     st.set_page_config(page_title="Multi-Agent Research", layout="wide")
-    st.title("🤖 Multi-Agent Research System — Gemini Powered")
+    st.title("🤖 Multi-Agent Research System — Groq Powered")
     st.markdown("3 AI agents bekerja bareng: Researcher → Writer → Editor")
 
     topic = st.text_input("📌 Topik riset:", "Tren jasa rope access di Jakarta 2024")

@@ -1,11 +1,11 @@
-# Multi-Agent Research System — Gemini Powered
+# Multi-Agent Research System — Groq Powered
 
-![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Python](https://img.shields.io/badge/Python-3.13-blue)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.35-red)
-![Gemini](https://img.shields.io/badge/Gemini-1.5_Flash-green)
+![Groq](https://img.shields.io/badge/Groq-Llama_3.3_70B-orange)
 
 ## 📌 Deskripsi
-Multi-agent AI system untuk riset otomatis. 3 agent bekerja sequential: Researcher (kumpulkan data) → Writer (tulis laporan) → Editor (polish & finalisasi).
+Multi-agent AI system untuk riset otomatis. 3 agent bekerja sequential: Researcher (kumpulkan data) → Writer (tulis laporan) → Editor (polish & finalisasi). Ditenagai Groq (Llama 3.3 70B).
 
 ## 🎯 Fitur
 - Input topik → output laporan profesional
@@ -14,12 +14,13 @@ Multi-agent AI system untuk riset otomatis. 3 agent bekerja sequential: Research
 - Streamlit UI untuk monitoring tiap agent step
 
 ## 🛠️ Tech Stack
-- Python, Streamlit, LangChain, Gemini API
+- Python, Streamlit, LangChain, Groq (Llama 3.3 70B)
 
 ## 🚀 Cara Menjalankan
 
 ```bash
-$env:GEMINI_API_KEY="AQ....YOUR_KEY_HERE...."
+# Ambil API key gratis di https://console.groq.com/keys
+$env:GROQ_API_KEY="gsk_....YOUR_KEY_HERE...."
 pip install -r requirements.txt
 streamlit run app.py
 ```
